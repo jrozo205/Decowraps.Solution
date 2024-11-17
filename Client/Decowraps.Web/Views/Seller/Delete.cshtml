@@ -1,0 +1,80 @@
+﻿@model Decowraps.Web.Models.SellerViewModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h5>Eliminar vendedor</h5>
+
+<p>¿Esta seguro de eliminar a este vendedor?</p>
+<div>
+    <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                <label asp-for="SellerId" class="control-label">Id</label>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.SellerId)
+            </dd>
+            <dt class="col-sm-2">
+                <label asp-for="Name" class="control-label">Nombre</label>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-2">
+                <label asp-for="Surname" class="control-label">Apellido</label>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Surname)
+            </dd>
+            <dt class="col-sm-2">
+                <label asp-for="Phone" class="control-label">Teléfono</label>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Phone)
+            </dd>
+            <dt class="col-sm-2">
+                <label asp-for="BirthDate" class="control-label">Fecha de nacimiento</label>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BirthDate)
+            </dd>
+            <dt class="col-sm-2">
+                <label asp-for="Email" class="control-label">Email</label>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt class="col-sm-2">
+                <label asp-for="Salary" class="control-label">Salario</label>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Salary)
+            </dd>
+            <dt class="col-sm-2">
+                <label asp-for="Address" class="control-label">Dirección</label>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+            <dt class="col-sm-2">
+                <label asp-for="Status" class="control-label">Estado</label>
+            </dt>
+            <dd class="col-sm-10">
+                @if (Model.Status)
+                {
+                    <label class="control-label">Activo</label>
+                }
+                else
+                {
+                    <label class="control-label">Eliminado</label>
+                }
+            </dd>
+        </dl>
+    
+    <form asp-action="Delete">
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index">Regresar al listado</a>
+    </form>
+</div>

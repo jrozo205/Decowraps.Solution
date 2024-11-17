@@ -1,0 +1,6 @@
+@Decowraps.Services.Api_HostAddress = http://localhost:5152
+
+GET {{Decowraps.Services.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "rpDecowraps", "rpDecowraps\rpDecowraps.rptproj", "{C772FF87-E979-4DEE-931C-384B8C58FD94}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C772FF87-E979-4DEE-931C-384B8C58FD94}.Debug|Default.ActiveCfg = Debug
+		{C772FF87-E979-4DEE-931C-384B8C58FD94}.Debug|Default.Build.0 = Debug
+		{C772FF87-E979-4DEE-931C-384B8C58FD94}.Debug|Default.Deploy.0 = Debug
+		{C772FF87-E979-4DEE-931C-384B8C58FD94}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{C772FF87-E979-4DEE-931C-384B8C58FD94}.DebugLocal|Default.Build.0 = DebugLocal
+		{C772FF87-E979-4DEE-931C-384B8C58FD94}.Release|Default.ActiveCfg = Release
+		{C772FF87-E979-4DEE-931C-384B8C58FD94}.Release|Default.Build.0 = Release
+		{C772FF87-E979-4DEE-931C-384B8C58FD94}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A5530EF0-E420-410C-9110-5605C150A4DF}
+	EndGlobalSection
+EndGlobal

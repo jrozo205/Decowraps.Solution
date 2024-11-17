@@ -1,0 +1,143 @@
+﻿@model Decowraps.Web.Models.SellerViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<h5>Editar vendedor</h5>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" id="FrmEditSeller" class="align-items-center">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" id="SellerId" name="SellerId" value="@Model.SellerId" />
+            <div class="form-group">
+                <label for="Name">Nombre</label>
+                <input type="text" class="form-control" id="Name" name="Name" value="@Model.Name">
+                <div class="invalid-feedback">El nombre es obligatorio.</div>
+            </div>
+            <div class="form-group">
+                <label for="Surname">Apellido</label>
+                <input type="text" class="form-control" id="Surname" name="Surname" value="@Model.Surname">
+                <div class="invalid-feedback">El apellido es obligatorio.</div>
+            </div>
+            <div class="form-group">
+                <label for="Phone">Teléfono</label>
+                <input type="text" class="form-control" id="Phone" name="Phone" placeholder="555-5555555" value="@Model.Phone">
+                <div class="invalid-feedback">El teléfono es obligatorio.</div>
+                <div class="invalid-feedback">El teléfono debe tener formato 555-5555555.</div>
+            </div>
+            <div class="form-group">
+                <label for="BirthDate">Fecha de Nacimiento</label>
+                <input type="date" class="form-control" id="BirthDate" name="BirthDate" value="@Model.BirthDate.ToString("yyyy-MM-dd")"> 
+                <div class="invalid-feedback">La fecha de nacimiento es obligatoria.</div>
+                <div class="invalid-feedback">La fecha de nacimiento debe ser válida.</div>
+            </div>
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input type="email" class="form-control" id="Email" name="Email" value="@Model.Email">
+                <div class="invalid-feedback">El email es obligatorio.</div>
+                <div class="invalid-feedback">El email debe tener un formato válido.</div>
+            </div>
+            <div class="form-group">
+                <label for="Salary">Salario</label>
+                <input type="number" class="form-control" id="Salary" name="Salary" min="0" step="0.01" value="@Model.Salary">
+                <div class="invalid-feedback">El salario debe ser un número positivo.</div>
+            </div>
+            <div class="form-group">
+                <label for="Address">Dirección</label>
+                <input type="text" class="form-control" id="Address" name="Address" value="@Model.Address">
+                <div class="invalid-feedback">La dirección es obligatoria.</div>
+            </div>
+            <div class="form-group">
+                <br />
+                <input type="submit" value="Guardar" class="btn btn-success" /> |
+                <a asp-action="Index">Regresar al listado</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<input type="hidden" id="idDate" value="@Model.BirthDate" />
+
+<script>
+    $(document).ready(function () {
+      
+
+        $("#FrmEditSeller").submit(function (event) {
+            event.preventDefault(); // Evita el envío del formulario hasta que se validen los datos
+
+            let isValid = true;
+
+            // Validación de Nombre
+            if ($("#Name").val().trim() === "") {
+                $("#Name").addClass("is-invalid");
+                isValid = false;
+            } else {
+                $("#Name").removeClass("is-invalid");
+            }
+
+            // Validación de Apellido
+            if ($("#Surname").val().trim() === "") {
+                $("#Surname").addClass("is-invalid");
+                isValid = false;
+            } else {
+                $("#Surname").removeClass("is-invalid");
+            }
+
+            // Validación de Fecha de Nacimiento
+            if ($("#BirthDate").val() === "") {
+                $("#BirthDate").addClass("is-invalid");
+                isValid = false;
+            } else {
+                $("#BirthDate").removeClass("is-invalid");
+            }
+
+            // Validación de Teléfono
+            const phonePattern = /^\d{3}-\d{7}$/;
+            if (!phonePattern.test($("#Phone").val())) {
+                $("#Phone").addClass("is-invalid");
+                isValid = false;
+            } else {
+                $("#Phone").removeClass("is-invalid");
+            }
+
+            // Validación de Email
+            const emailPattern = /^\w+([.-_+]?\w+)*@@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+
+            if (!emailPattern.test($("#Email").val())) {
+                $("#Email").addClass("is-invalid");
+                isValid = false;
+            } else {
+                $("#Email").removeClass("is-invalid");
+            }
+
+            // Validación de Salario
+            if ($("#Salary").val() <= 0 || isNaN($("#Salary").val())) {
+                $("#Salary").addClass("is-invalid");
+                isValid = false;
+            } else {
+                $("#Salary").removeClass("is-invalid");
+            }
+
+        // Validación de Apellido
+            if ($("#Address").val().trim() === "") {
+                $("#Address").addClass("is-invalid");
+            isValid = false;
+        } else {
+                $("#Address").removeClass("is-invalid");
+        }
+
+
+            // Si todo es válido, se envía el formulario
+            if (isValid) {
+             //   alert("Formulario enviado correctamente.");
+                $(this).unbind("submit").submit();
+                // Aquí puedes hacer el envío del formulario, por ejemplo, con una petición AJAX
+                // $(this).unbind("submit").submit(); // Si decides enviar el formulario de forma nativa
+            }
+        });
+    });
+</script>
